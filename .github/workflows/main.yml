@@ -6,15 +6,15 @@ on:
       - main
 
 jobs:
-  build:
+  preprocessing:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - name: Setup Python
+      uses: actions/setup-python@v4
       with:
         python-version: '3.9'
 
@@ -22,6 +22,6 @@ jobs:
       run: |
         pip install pandas numpy matplotlib seaborn scikit-learn
 
-    - name: Run preprocessing script
+    - name: Run preprocessing
       run: |
         python preprocessing/automate_TengkuNabilaZaskiah.py
