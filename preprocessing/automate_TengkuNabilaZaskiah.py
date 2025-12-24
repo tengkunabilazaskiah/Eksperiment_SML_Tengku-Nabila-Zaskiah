@@ -5,8 +5,11 @@ def preprocess_heart_dataset():
     # Load dataset dari folder dataset_raw
     df = pd.read_csv("dataset_raw/heart.csv")
 
-    # 🔍 Debug print untuk memastikan kolom yang terbaca
-    print("Kolom dataset:", df.columns.tolist())
+    # Bersihkan spasi di nama kolom
+    df.columns = df.columns.str.strip()
+
+    # Debug print
+    print("Kolom dataset setelah strip:", df.columns.tolist())
     print(df.head())
 
     # Hapus data duplikat
