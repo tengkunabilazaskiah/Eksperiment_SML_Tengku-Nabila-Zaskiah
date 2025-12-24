@@ -2,8 +2,8 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
 def preprocess_heart_dataset():
-    # Load dataset
-    df = pd.read_csv("Eksperimen_SML_TengkuNabilaZaskiah/heart.csv")
+    # Load dataset dari folder dataset_raw
+    df = pd.read_csv("dataset_raw/heart.csv")
 
     # Hapus data duplikat
     df = df.drop_duplicates()
@@ -20,8 +20,8 @@ def preprocess_heart_dataset():
     df_preprocessed = pd.DataFrame(X_scaled, columns=X.columns)
     df_preprocessed["target"] = y.values
 
-    # Simpan hasil preprocessing
-    df_preprocessed.to_csv("Eksperimen_SML_TengkuNabilaZaskiah/heart_preprocessed.csv", index=False)
+    # Simpan hasil preprocessing ke folder preprocessing
+    df_preprocessed.to_csv("preprocessing/heart_preprocessed.csv", index=False)
 
     print("✅ Preprocessing selesai. File 'heart_preprocessed.csv' berhasil dibuat.")
 
